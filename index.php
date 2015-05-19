@@ -123,6 +123,6 @@ if (isset($typeString)) {
 	echo $svg;
 
 } else {
-	include "index.html";
+	include "about.html";
 }
 ?>
