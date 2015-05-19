@@ -2,12 +2,12 @@
 /**
  * This file is part of the exporting module for Highcharts JS.
  * www.highcharts.com/license
- * 
- *  
+ *
+ *
  * Available POST variables:
  *
  * $filename  string   The desired filename without extension
- * $type      string   The MIME type for export. 
+ * $type      string   The MIME type for export.
  * $width     int      The pixel width of the exported raster image. The height is calculated.
  * $svg       string   The SVG source code to convert.
  */
@@ -28,7 +28,7 @@ if (!$filename or !preg_match('/^[A-Za-z0-9\-_ ]+$/', $filename)) {
 	$filename = 'chart';
 }
 if (get_magic_quotes_gpc()) {
-	$svg = stripslashes($svg);	
+	$svg = stripslashes($svg);
 }
 
 // check for malicious attack in SVG
@@ -42,7 +42,7 @@ $tempName = md5(rand());
 if ($type == 'image/png') {
 	$typeString = '-m image/png';
 	$ext = 'png';
-	
+
 } elseif ($type == 'image/jpeg') {
 	$typeString = '-m image/jpeg';
 	$ext = 'jpg';
@@ -61,35 +61,35 @@ if ($type == 'image/png') {
 $outfile = "temp/$tempName.$ext";
 
 if (isset($typeString)) {
-	
+
 	// size
 	$width = '';
 	if ($_POST['width']) {
 		$width = (int)$_POST['width'];
 		if ($width) $width = "-w $width";
 	}
-	
+
 	$height = '';
-	
+
 	if($_POST['height']) {
 		$height = (int)$_POST['height'];
 		if ($height) $height = "-h $height";
 	}
 
 	// generate the temporary file
-	if (!file_put_contents("temp/$tempName.svg", $svg)) { 
+	if (!file_put_contents("temp/$tempName.svg", $svg)) {
 		die("Couldn't create temporary file. Check that the directory permissions for
 			the /temp directory are set to 777.");
 	}
-	
+
 	// do the conversion
 	$output = shell_exec("/alidata/server/java/jre1.7.0_67/bin/java -jar ". BATIK_PATH ." $typeString -d $outfile $width $height temp/$tempName.svg");
-	
+
 	// catch error
 	if (!is_file($outfile) || filesize($outfile) < 10) {
 		echo "<pre>$output</pre>";
 		echo "Error while converting SVG. ";
-		
+
 		if (strpos($output, 'SVGConverter.error.while.rasterizing.file') !== false) {
 			echo "
 			<h4>Debug steps</h4>
@@ -101,8 +101,8 @@ if (isset($typeString)) {
 			<li>Click the Check button</li>
 			</ol>";
 		}
-	} 
-	
+	}
+
 	// stream it
 	else {
 		header("Content-Disposition: attachment; filename=\"$filename.$ext\"");
@@ -110,7 +110,7 @@ if (isset($typeString)) {
 		header("Content-Length:".filesize($outfile));
 		echo file_get_contents($outfile);
 	}
-	
+
 	// delete it
 	unlink("temp/$tempName.svg");
 	unlink($outfile);
@@ -121,8 +121,8 @@ if (isset($typeString)) {
 	header("Content-Type: $type");
 	header("Content-Length:".filesize($outfile));
 	echo $svg;
-	
+
 } else {
-	include "about.html";
+	include "index.html";
 }
 ?>
