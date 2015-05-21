@@ -20,12 +20,15 @@
     .section {
         display: none;
         margin-top: 50px;
-        text-align: center;
     }
 
     .section h1 {
         font-size: 40px;
         line-height: 200%;
+    }
+
+    .jumbotron {
+        text-align: center;
     }
 
     .lead {
@@ -36,20 +39,19 @@
         height: 30px;
     }
     </style>
-
     <header>
-      <div class="container">
-
-      </div>
+        <div class="container">
+        </div>
     </header>
     <div id="main-container">
         <div class="masthead">
             <ul class="nav nav-pills pull-right">
                 <li data-index="index"><a href="#index">首页</a></li>
+                <li data-index="tools"><a href="#tools">在线工具</a></li>
                 <li data-index="docs"><a href="#doc">文档</a></li>
                 <li data-index="download"><a href="#download">下载</a></li>
                 <li data-index="wrapper"><a href="#wrapper">第三方扩展</a></li>
-                <li><a href="https://github.com/hcharts/export">GitHub</a></li>
+                <li data-index="about"><a href="#about">关于</a></li>
             </ul>
             <h3 class="muted">Exporting</h3>
         </div>
@@ -60,12 +62,58 @@
                 <p>轻松将你的 Highcharts 图表导出下载为图片或 PDF 文档</p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
             </div>
-          </div>
+        </div>
+
+        <div class="section" data-index="tools">
+            在线工具
+        </div>
         <div class="section" data-index="download">
             Download
         </div>
         <div class="section" data-index="wrapper">
-            Wrapper
+            <h2>第三方扩展</h2>
+            <p>下所列举的内容为不同语言或者不同方式的对Highcharts 导出服务的第三方扩展</p>
+            <h4>不同语言第三方扩展</h4>
+            <ul>
+                <li><a href="https://github.com/imclem/Highcharts-export-module-asp.net">Export server for ASP.NET</a> provided by Clément Agarini.</li>
+                <li><a target="_blank" href="https://github.com/one2team/highcharts-serverside-export">Export server and wrapper in Java</a> provided by <a href="http://en.one2team.com/">One2team</a></li>
+                <li><a target="_blank" href="https://github.com/joeltinez/Highcharts-Exporting-Server/blob/master/exportChart-perl.pl">Export server wrapper in Perl</a> provided by Joel J. Martinez</li>
+                <li><a target="_blank" href="https://github.com/davidpadbury/node-highcharts">Node.js export server</a>installable als npm-package, by <a href="http://davidpadbury.com">David Padbury</a></li>
+                <li><a target="_blank" href="https://github.com/kbaum/highchart-image-api">Rails image API</a> that wraps the Highcharts convert script to create chart images on the server, by <a href="https://github.com/kbaum">Karl Baum</a></li>
+            </ul>
+            <h4>服务端导出</h4>
+            <ul>
+                <li>
+                    <a href="https://github.com/hcharts/highcharts-serverside-export">highcharts-serverside-export</a>
+                </li>
+            </ul>
+            <h4>浏览器端导出</h4>
+            <ul>
+                <li>
+                    <a href="https://github.com/hcharts/highcharts-export-clientside">highcharts-export-clientside</a>
+                </li>
+            </ul>
+        </div>
+        <div class="section" data-index="about">
+            <h3>关于</h3>
+            <p>由 John doe 用心制作，由 Highcharts 中文网提供服务</p>
+            <h4>Github 开源</h4>
+            <p>http://github.com/hcharts/export/</p>
+            <p>更多 Highcharts 中文网开源项目见：http://github.com/hcharts/</p>
+            <h4>友情链接</h4>
+            <ul>
+                <li>Highcharts中文网</li>
+                <li>Highcharts中文论坛</li>
+                <li>HCode</li>
+                <li>开发CDN服务</li>
+            </ul>
+            <h4>联系方式</h4>
+            <ul>
+                <li>意见建议：hi@hcharts.cn</li>
+                <li>官方微博：http://weibo.com/highcharts</li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
         <p id="footer" style="border-top:1px solid #ddd;color:#999;margin-top:80px;padding-top:10px">
             &copy;
