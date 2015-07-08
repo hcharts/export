@@ -4,10 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <title> Highcharts 导出服务器 </title>
-    <meta name="description" content="绘制SVG地图的JavaScript控件" />
-    <meta name="keywords" content="svg,地图,geojson,javascript" />
-    <meta name="author" content="Dx. Yang" />
+    <meta name="description" content="Highcharts中文网导出服务器" />
+    <meta name="keywords" content="highcharts,导出服务器,highcharts中文,highcharts导出服务器" />
     <link media="screen" href="http://static.hcharts.cn/bootstrap/v3/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        h4 {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -60,7 +64,7 @@
             <div class="jumbotron">
                 <h1>Highcharts 导出服务</h1>
                 <p>轻松将你的 Highcharts 图表导出下载为图片或 PDF 文档</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                <p><a class="btn btn-primary btn-lg" href="http://export.hcharts.cn/index.php#doc" role="button">Learn more</a></p>
             </div>
         </div>
 
@@ -111,8 +115,7 @@
             <ul>
                 <li>意见建议：hi@hcharts.cn</li>
                 <li>官方微博：http://weibo.com/highcharts</li>
-                <li></li>
-                <li></li>
+
             </ul>
         </div>
         <p id="footer" style="border-top:1px solid #ddd;color:#999;margin-top:80px;padding-top:10px">
@@ -128,7 +131,6 @@
     var hash = location.hash;
     hash = (hash === "" ? "index" : hash.replace("#", ""));
 
-    // console.log(hash);
     show(hash);
 
     $(".nav>li").click(function() {
