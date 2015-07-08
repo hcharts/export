@@ -556,6 +556,7 @@
 
 		server.listen(host + ':' + port,
 			function (request, response) {
+			response.setHeader("Access-Control-Allow-Origin", "*");
 				var jsonStr = request.postRaw || request.post,
 					params,
 					msg;
