@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <button>export</button>
+  <script type="text/javascript" src="../jquery.1.9.1.min.js"></script>
+  <script type="text/javascript" src="../highcharts.js"></script>
+  <script type="text/javascript" src="../exporting.js"></script>
+  <script type="text/javascript">
+    $("button").click(function(){
+      Highcharts.post('http://export.hcharts.cn', {
+        method:"nodejs",
+        filename:"chart",
+        options:"{xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},series: [{data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0,135.6, 148.5, 216.4, 194.1, 95.6, 54.4]        }]};"
+      });
+    });
+  </script>
+</body>
+</html>
