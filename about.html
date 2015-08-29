@@ -66,13 +66,39 @@
                 <p>轻松将你的 Highcharts 图表导出下载为图片或 PDF 文档</p>
                 <p><a class="btn btn-primary btn-lg" href="http://export.hcharts.cn/index.php#doc" role="button">Learn more</a></p>
             </div>
+
+            <h3>使用方式</h3>
+            <p>
+                1、highcharts导出服务器
+            </p>
+            <pre>$('#container').highcharts({
+    // ... Highcharts 配置
+
+    exporting: {
+        url: 'http://export.hcharts.cn/'
+    }
+
+    // ... Highcharts 配置
+});</pre>
+            <p>2、csv 导出服务器</p>
+            <pre>Highcharts.post('http://export.hcharts.cn/csv.php', {
+    csv: chart.getCSV()
+});</pre>
+        <h3>搭建本地服务器</h3>
+        <p>以上的所有导出服务器都可以在本地搭建，目前我们已经提供 php、java、asp、nodejs 等不同版本的导出服务器及详细的文档，详见文档。</p>
         </div>
 
         <div class="section" data-index="tools">
-            在线工具
+            在线工具待开发
         </div>
         <div class="section" data-index="download">
-            Download
+            <h3>下载</h3>
+            <p>目前我们提供和 Highcharts 图表导出相关的下载包括：</p>
+            <h4>php 版导出服务器</h4>
+            <h4>java 版导出服务器</h4>
+            <h4>asp 版</h4>
+            <h4>nodejs 版</h4>
+            <h4>Phantomjs 版</h4>
         </div>
         <div class="section" data-index="wrapper">
             <h2>第三方扩展</h2>
@@ -100,22 +126,21 @@
         </div>
         <div class="section" data-index="about">
             <h3>关于</h3>
-            <p>由 John doe 用心制作，由 Highcharts 中文网提供服务</p>
+            <p>由 <a href="//52wulian.cn">John doe</a> 开发，由 Highcharts 中文网提供服务</p>
             <h4>Github 开源</h4>
-            <p>http://github.com/hcharts/export/</p>
-            <p>更多 Highcharts 中文网开源项目见：http://github.com/hcharts/</p>
+            <p><a href="http://github.com/hcharts/export/">http://github.com/hcharts/export/</a></p>
+            <p>更多 Highcharts 中文网开源项目见：<a href="http://github.com/hcharts/">http://github.com/hcharts/</a></p>
             <h4>友情链接</h4>
             <ul>
-                <li>Highcharts中文网</li>
-                <li>Highcharts中文论坛</li>
-                <li>HCode</li>
-                <li>开发CDN服务</li>
+                <li><a href="//www.hcharts.cn">Highcharts中文网</a></li>
+                <li><a href="//highcharts.me">Highcharts 中文社区</a></li>
+                <li><a href="//code.hcharts.cn">HCode</a></li>
+                <li><a href="//cdn.hcharts.cn">开发CDN服务</a></li>
             </ul>
             <h4>联系方式</h4>
             <ul>
                 <li>意见建议：hi@hcharts.cn</li>
-                <li>官方微博：http://weibo.com/highcharts</li>
-
+                <li>官方微博：<a href="http://weibo.com/highcharts">http://weibo.com/highcharts</a></li>
             </ul>
         </div>
         <p id="footer" style="border-top:1px solid #ddd;color:#999;margin-top:80px;padding-top:10px">
