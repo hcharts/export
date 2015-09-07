@@ -2,10 +2,15 @@
 
 /**
 * 基于 Phantomjs 实现的导出服务器
+* Author: john (c) www.hcharts.cn
+* Version: 0.0.1
+* Date: 2015-09-07
+* License: MIT
 */
 
 // Phantomjs 路径
 define ('Phantom_HOME', '/usr/local/bin/');
+
 ini_set('magic_quotes_gpc', 'off');
 
 $type = $_POST['type'];
@@ -87,6 +92,11 @@ if (isset($typeString)) {
   unlink($outfile);
 
 
+} else if($ext == 'svg') {
+  header("Content-Disposition: attachment; filename=\"$filename.$ext\"");
+  header("Content-Type: $type");
+  header("Content-Length:".filesize($outfile));
+  echo $svg;
 } else {
   include "about.html";
 }
