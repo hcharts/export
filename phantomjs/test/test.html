@@ -23,7 +23,7 @@
   <script>
     $("button").click(function(){
         $.ajax({
-          url:"http://127.0.0.1:3003",
+          url:"http://127.0.0.1:8080/phantom.php",
           data:"{\"infile\":\"{xAxis: {categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},series: [{data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]}]};\",\"callback\":\"function(chart) {chart.renderer.arc(200, 150, 100, 50, -Math.PI, 0).attr({fill : '#FCFFC5',stroke : 'black','stroke-width' : 1}).add();}\",\"constr\":\"Chart\"}",
           type:"post",
           success:function(data) {
