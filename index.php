@@ -15,7 +15,7 @@
 
 // Options
 define ('BATIK_PATH', 'batik-rasterizer.jar');
-
+define ('JRE_HOME', '/usr/local/java/jre1.7.0_67/');
 ///////////////////////////////////////////////////////////////////////////////
 ini_set('magic_quotes_gpc', 'off');
 
@@ -83,7 +83,7 @@ if (isset($typeString)) {
 	}
 
 	// do the conversion
-	$output = shell_exec("/alidata/server/java/jre1.7.0_67/bin/java -jar ". BATIK_PATH ." $typeString -d $outfile $width $height temp/$tempName.svg");
+	$output = shell_exec(JRE_HOME."bin/java -jar ". BATIK_PATH ." $typeString -d $outfile $width $height temp/$tempName.svg");
 
 	// catch error
 	if (!is_file($outfile) || filesize($outfile) < 10) {
