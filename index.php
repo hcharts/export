@@ -15,7 +15,7 @@
 
 // Options
 define ('BATIK_PATH', 'batik-rasterizer.jar');
-define ('JRE_HOME', '/usr/local/java/jre1.7.0_67/');
+define ('JRE_HOME', '/usr/');
 ///////////////////////////////////////////////////////////////////////////////
 ini_set('magic_quotes_gpc', 'off');
 
@@ -24,7 +24,9 @@ $svg = (string) $_POST['svg'];
 $filename = (string) $_POST['filename'];
 
 // prepare variables
-if (!$filename or !preg_match('/^[A-Za-z0-9\-_ ]+$/', $filename)) {
+
+// if (!$filename or !preg_match('/^[A-Za-z0-9\-_ ]+$/', $filename)) {
+if(!$filename) {
 	$filename = 'chart';
 }
 if (get_magic_quotes_gpc()) {
@@ -112,14 +114,14 @@ if (isset($typeString)) {
 	}
 
 	// delete it
-	unlink("temp/$tempName.svg");
-	unlink($outfile);
+	// unlink("temp/$tempName.svg");
+	// unlink($outfile);
 
 // SVG can be streamed directly back
 } else if ($ext == 'svg') {
 	header("Content-Disposition: attachment; filename=\"$filename.$ext\"");
 	header("Content-Type: $type");
-	header("Content-Length:".filesize($outfile));
+	header("Content-Length:".filesize($svg));
 	echo $svg;
 
 } else {
